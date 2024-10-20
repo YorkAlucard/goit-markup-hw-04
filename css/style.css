@@ -33,6 +33,10 @@ img {
   display: block;
 }
 
+button {
+  cursor: pointer;
+}
+
 .container {
   max-width: 1158px;
   padding: 0 15px;
@@ -52,6 +56,8 @@ section {
 
 .header {
   border-bottom: 1px solid #e7e9fc;
+  box-shadow: 0 1px 6px 0 rgba(46, 47, 66, 0.08),
+    0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 2px 1px 0 rgba(46, 47, 66, 0.08);
 }
 
 .header-navigat {
@@ -82,15 +88,34 @@ section {
   gap: 40px;
 }
 
+.header-menu-link.current {
+  position: relative;
+}
+
+.header-menu-link.current::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 4px;
+  background-color: #404bbf;
+  border-radius: 2px;
+}
+
 .header-menu-link {
+  display: block;
   font-weight: 500;
   letter-spacing: 0.02em;
   color: #2e2f42;
   padding: 24px 0;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .header-menu-link:hover,
-.header-menu-link:focus {
+.header-menu-link:focus,
+.contacts-link:hover,
+.contacts-link:focus .header-menu-link.current {
   color: #404bbf;
 }
 
@@ -109,15 +134,16 @@ section {
   color: #434455;
 }
 
-.contacts-link:hover,
-.contacts-link:focus {
-  color: #404bbf;
-}
-
 /*--------- HEAD TEXT --------------*/
 
 .head-site {
+  background-image: linear-gradient(
+      rgba(46, 47, 66, 0.7),
+      rgba(46, 47, 66, 0.7)
+    ),
+    url(../images/people-office1.jpg);
   background-color: #2e2f42;
+  max-width: 1440px;
   padding: 188px 0;
 }
 
@@ -149,6 +175,7 @@ section {
   height: 56px;
   display: block;
   margin: 0 auto;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .header-button:hover,
@@ -174,6 +201,17 @@ section {
   display: flex;
   justify-content: center;
   gap: 24px;
+}
+
+.strategy-icon-container {
+  border: 1px solid #8e8f99;
+  border-radius: 4px;
+  height: 112px;
+  margin-bottom: 8px;
+  background: #f4f4fd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .strategy-list-title {
@@ -218,14 +256,13 @@ section {
   background-color: #ffffff;
   width: calc((100% - 72px) / 4);
   border-radius: 0 0 4px 4px;
-  padding: 0px 0px 32px 0px;
   box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08),
     0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 1px 6px 0 rgba(46, 47, 66, 0.08);
   background: #fff;
 }
 
 .team-list-container {
-  padding: 32px 0;
+  padding: 32px 16px;
   text-align: center;
 }
 
@@ -243,8 +280,30 @@ section {
   color: #434455;
   font-size: 16px;
   line-height: 1.5;
+  margin-bottom: 8px;
 }
 
+.social-team-link {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.team-soc-link {
+  width: 40px;
+  height: 40px;
+  background-color: #4d5ae5;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.team-soc-link:hover,
+.team-soc-link:focus {
+  background-color: #404bbf;
+}
 /*--------------- PORTFOLIO --------------*/
 .portfolio-title {
   font-size: 36px;
@@ -259,10 +318,35 @@ section {
 .portfolio-list-container {
   padding: 32px 16px;
   border-bottom: 1px solid #e7e9fc;
+  border-right: 1px solid #e7e9fc;
+  border-left: 1px solid #e7e9fc;
+}
+
+.taste-cover-wrap {
+  position: relative;
+  overflow: hidden;
 }
 
 .portfolio-list-item {
   width: calc((100% - 48px) / 3);
+  cursor: pointer;
+}
+
+.portfolio-list-text {
+  position: absolute;
+  background-color: #4d5ae5;
+  color: #f4f4fd;
+  font-weight: 400;
+  font-size: 16px;
+  padding: 40px 32px;
+  line-height: 150%;
+  letter-spacing: 0.02em;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: translateY(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portfolio-list {
@@ -281,10 +365,22 @@ section {
   margin-bottom: 8px;
 }
 
+.portfolio-list-item:hover .portfolio-list-text {
+  transform: translateY(0);
+}
+
+.portfolio-list-item:hover {
+  box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08),
+    0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 1px 6px 0 rgba(46, 47, 66, 0.08);
+}
 /* --------------------_FOOOOOTEEERR-------------------------------- */
 .footer {
   background-color: #2e2f42;
   padding: 100px 0;
+}
+
+.footer-container {
+  display: flex;
 }
 
 .footer-navigat-logo {
@@ -292,6 +388,7 @@ section {
   font-style: normal;
   text-transform: uppercase;
   color: #4d5ae5;
+  display: block;
 }
 
 .footer-logo {
@@ -314,4 +411,20 @@ section {
   color: #f4f4fd;
   letter-spacing: 0.02em;
   max-width: 264px;
+}
+
+.footer-social-text {
+  line-height: 150%;
+  letter-spacing: 0.02em;
+  color: #fff;
+}
+
+.footer-soc-list {
+  display: block;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.footer-soc-list .team-soc-link:hover,
+.footer-soc-list .team-soc-link:focus {
+  background-color: #31d0aa;
 }
