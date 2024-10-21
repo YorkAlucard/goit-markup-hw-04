@@ -136,7 +136,7 @@ section {
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/*--------- HEAD TEXT --------------*/
+/*--------- HERO TEXT --------------*/
 
 .head-site {
   background-image: linear-gradient(
@@ -145,7 +145,7 @@ section {
     ),
     url(../images/people-office1.jpg);
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: 50% 50%;
   background-size: cover;
   background-color: #2e2f42;
   max-width: 1440px;
@@ -394,13 +394,14 @@ section {
   align-items: baseline;
 }
 
-.footer-navigat-logo {
+/*.footer-navigat-logo {
   font-family: 'Raleway', sans-serif;
   font-style: normal;
   text-transform: uppercase;
   color: #4d5ae5;
   display: block;
-}
+
+*/
 
 .footer-logo {
   display: inline-block;
